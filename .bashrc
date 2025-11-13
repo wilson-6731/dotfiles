@@ -1,36 +1,25 @@
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=500
-HISTFILESIZE=500
+# .bashrc
 
-# ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
 
-# git support for the bash prompt
-git_status() {
-    branch_name=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
-    branch_status=$(git status --porcelain=v1 2>/dev/null | wc -l | awk '{$1=$1};1')
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
 
-    if [[ $branch_name == "" ]]; then
-        :
-    else
-        if [[ $branch_status == 0 ]]; then
-            echo ':: ['$branch_name'] '
-        else
-            echo ':: ['$branch_name'*] '
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
         fi
-    fi
-}
-
-USER="\u"
-HOST="\h"
-WORKING_DIR="\W"
-GIT="\$(git_status)"
-
-export PS1="$WORKING_DIR $GIT> "
-
-## vscode from flatpak
-function code() {
-  (flatpak run com.visualstudio.code $*)
-}
+    done
+fi
+unset rc
