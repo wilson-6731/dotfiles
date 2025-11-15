@@ -21,8 +21,6 @@ git_status() {
     fi
 }
 
-USER="\u"
-HOST="\h"
 WORKING_DIR="\W"
 GIT="\$(git_status)"
 TOOLBOX="\$(toolbox_status)"
