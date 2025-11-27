@@ -1,1 +1,1 @@
-    export PATH="/var/home/wzhu/bin:$PATH"
+export PATH="/var/home/wzhu/bin:$PATH"

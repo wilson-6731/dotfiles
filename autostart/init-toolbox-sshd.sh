@@ -2,4 +2,9 @@
 
 # This initialization script starts the ssh daemon in the toolbox container
 
-toolbox run sudo /usr/sbin/sshd
+if toolbox run pgrep sshd > /dev/null; then
+    echo "sshd is already running"
+else
+    echo "starting sshd"
+    toolbox run sudo /usr/sbin/sshd
+fi
