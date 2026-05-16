@@ -1,0 +1,34 @@
+{
+  "icon_theme": "Zed (Default)",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "disable_ai": true,
+  "theme": {
+    "mode": "dark",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
+  },
+  "ui_font_size": 15,
+  "ui_font_family": "Space Mono",
+  "buffer_font_size": 15,
+  "buffer_font_family": "Space Mono",
+  "project_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "button": false,
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "debugger": {
+    "dock": "left",
+  },
+  "soft_wrap": "none",
+}
