@@ -31,4 +31,23 @@
     "dock": "left",
   },
   "soft_wrap": "none",
+  "terminal": {
+    "env": {
+      // needed to supress the terminal panel errors
+      "LD_LIBRARY_PATH": "",
+    },
+    "shell": {
+      "with_arguments": {
+        "program": "toolbox",
+        "args": ["enter", "-c", "fedora-toolbox-44"],
+      },
+    },
+  },
+  "lsp": {
+    "gopls": {
+      "binary": {
+        "path": "/var/home/wzhu/bin/gopls-toolbox",
+      },
+    },
+  },
 }
